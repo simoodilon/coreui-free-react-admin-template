@@ -29,9 +29,19 @@ const AppSidebar = () => {
         dispatch({ type: 'set', sidebarShow: visible })
       }}
     >
-      <CSidebarBrand className="d-none d-md-flex" to="/">
-        <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
-        <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+      <CSidebarBrand
+        style={{
+          // backgroundColor: '#333',
+          // color: '#fff',
+          padding: '15px',
+          textAlign: 'center',
+          fontSize: '24px',
+          fontWeight: 'bold',
+        }}
+      >
+        {/* <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
+        <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} /> */}
+        SESAME
       </CSidebarBrand>
       <CSidebarNav>
         <SimpleBar>
