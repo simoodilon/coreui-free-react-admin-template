@@ -15,7 +15,7 @@ import {
 } from '@coreui/react'
 import { DocsExample } from 'src/components'
 
-const Dropdowns = () => {
+const GenerateFile = () => {
   return (
     <CRow>
       <CCol xs={12}>
@@ -38,9 +38,7 @@ const Dropdowns = () => {
                 </CDropdownMenu>
               </CDropdown>
             </DocsExample>
-            <p className="text-medium-emphasis small">
-              The best part is you can do this with any button variant, too:
-            </p>
+            <p className="text-medium-emphasis small">Generate Sesame File in Prefered version</p>
             <DocsExample href="components/dropdown#single-button">
               <>
                 {['primary', 'secondary', 'success', 'info', 'warning', 'danger'].map(
@@ -62,7 +60,14 @@ const Dropdowns = () => {
           </CCardBody>
         </CCard>
       </CCol>
-      <CCol xs={12}>
+    </CRow>
+  )
+}
+
+export default GenerateFile
+
+{
+  /* <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
             <strong>React Dropdown</strong> <small>Split button</small>
@@ -100,8 +105,10 @@ const Dropdowns = () => {
             </DocsExample>
           </CCardBody>
         </CCard>
-      </CCol>
-      <CCol xs={12}>
+      </CCol> */
+}
+{
+  /* <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
             <strong>React Dropdown</strong> <small>Sizing</small>
@@ -167,8 +174,10 @@ const Dropdowns = () => {
             </DocsExample>
           </CCardBody>
         </CCard>
-      </CCol>
-      <CCol xs={12}>
+      </CCol> */
+}
+{
+  /* <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
             <strong>React Dropdown</strong> <small>Single button</small>
@@ -227,8 +236,10 @@ const Dropdowns = () => {
             </DocsExample>
           </CCardBody>
         </CCard>
-      </CCol>
-      <CCol xs={12}>
+      </CCol> */
+}
+{
+  /* <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
             <strong>React Dropdown</strong> <small>Dropup</small>
@@ -264,8 +275,10 @@ const Dropdowns = () => {
             </DocsExample>
           </CCardBody>
         </CCard>
-      </CCol>
-      <CCol xs={12}>
+      </CCol> */
+}
+{
+  /* <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
             <strong>React Dropdown</strong> <small>Dropright</small>
@@ -301,8 +314,10 @@ const Dropdowns = () => {
             </DocsExample>
           </CCardBody>
         </CCard>
-      </CCol>
-      <CCol xs={12}>
+      </CCol> */
+}
+{
+  /* <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
             <strong>React Dropdown</strong> <small>Dropleft</small>
@@ -330,9 +345,5 @@ const Dropdowns = () => {
             </DocsExample>
           </CCardBody>
         </CCard>
-      </CCol>
-    </CRow>
-  )
+      </CCol> */
 }
-
-export default Dropdowns
