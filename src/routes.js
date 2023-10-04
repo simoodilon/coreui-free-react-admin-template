@@ -1,8 +1,6 @@
 import React from 'react'
 
-// const Login = React.lazy(() => import('./views/pages/login'))
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
-// const GenerateFile = React.lazy(() => import('./views/generatefile/GenerateFile'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
@@ -19,12 +17,12 @@ const Placeholders = React.lazy(() => import('./views/base/placeholders/Placehol
 const Popovers = React.lazy(() => import('./views/base/popovers/Popovers'))
 const Progress = React.lazy(() => import('./views/base/progress/Progress'))
 const Spinners = React.lazy(() => import('./views/base/spinners/Spinners'))
-const Tables = React.lazy(() => import('./views/base/tables/Tables'))
+
 const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
 
 // Buttons
-const ButtonGroups = React.lazy(() => import('./views/buttons/button-groups/ButtonGroups'))
-const GenerateFile = React.lazy(() => import('./views/buttons/dropdowns/GenerateFile'))
+const GenerateFile = React.lazy(() => import('./views/GenerateFile/GenerateFile'))
+const UserManagement = React.lazy(() => import('./views/usermanagement/UserManagement'))
 
 //Forms
 const ChecksRadios = React.lazy(() => import('./views/forms/checks-radios/ChecksRadios'))
@@ -52,13 +50,11 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const routes = [
-  // { path: '/login', name: 'Login', element: Login },
-  { path: '/', exact: true, name: 'Home' },
+  { path: '/', exact: true, name: 'LogOut' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },
-  // { path: '/generatefile', name: 'GenerateFile', element: GenerateFile },
   { path: '/base', name: 'Base', element: Cards, exact: true },
   { path: '/base/accordion', name: 'Accordion', element: Accordion },
   { path: '/base/breadcrumbs', name: 'Breadcrumbs', element: Breadcrumbs },
@@ -72,10 +68,12 @@ const routes = [
   { path: '/base/popovers', name: 'Popovers', element: Popovers },
   { path: '/base/progress', name: 'Progress', element: Progress },
   { path: '/base/spinners', name: 'Spinners', element: Spinners },
-  { path: '/base/tables', name: 'Tables', element: Tables },
+
   { path: '/base/tooltips', name: 'Tooltips', element: Tooltips },
-  { path: '/buttons/GenerateFile', name: 'Dropdowns', element: GenerateFile },
-  { path: '/buttons/button-groups', name: 'Button Groups', element: ButtonGroups },
+
+  { path: '/GenerateFile/GenerateFile', name: 'GenerateFile', element: GenerateFile },
+  { path: '/usermanagement/UserManagement', name: 'UserManagement', element: UserManagement },
+
   { path: '/charts', name: 'Charts', element: Charts },
   { path: '/forms', name: 'Forms', element: FormControl, exact: true },
   { path: '/forms/form-control', name: 'Form Control', element: FormControl },
