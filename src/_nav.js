@@ -29,7 +29,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Generate File',
-    to: '/generatefile',
+    to: '/buttons/dropdowns',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     badge: {
       color: 'info',

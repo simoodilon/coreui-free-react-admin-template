@@ -21,7 +21,7 @@ const Dropdowns = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Dropdown</strong> <small>Single button</small>
+            <strong>Generate Sesame File</strong> <small>Select format</small>
           </CCardHeader>
           <CCardBody>
             <p className="text-medium-emphasis small">
