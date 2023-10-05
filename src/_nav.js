@@ -36,7 +36,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Profile',
-    to: '/forms/floating-labels',
+    to: '/profile/Profile',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     badge: {
       color: 'info',

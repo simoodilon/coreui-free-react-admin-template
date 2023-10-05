@@ -13,8 +13,10 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
+  const navigate = useNavigate()
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -59,6 +61,12 @@ const Register = () => {
                     <CButton color="success">Create Account</CButton>
                   </div>
                 </CForm>
+                <div className="d-grid" style={{ marginTop: '20px' }}>
+                  {' '}
+                  <CButton color="link" onClick={() => navigate('/login')}>
+                    Already have an account? Login here.
+                  </CButton>
+                </div>
               </CCardBody>
             </CCard>
           </CCol>
