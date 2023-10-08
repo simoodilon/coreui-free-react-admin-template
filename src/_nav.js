@@ -1,7 +1,7 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-import { cilSpeedometer } from '@coreui/icons'
-import { CNavItem } from '@coreui/react'
+import { cilSpeedometer, cilCursor } from '@coreui/icons'
+import { CNavItem, CNavGroup } from '@coreui/react'
 
 const _nav = [
   {
@@ -41,6 +41,68 @@ const _nav = [
     badge: {
       color: 'info',
     },
+  },
+
+  {
+    component: CNavGroup,
+    name: 'Qualitative Data',
+    to: '/qualitativedata',
+    icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Form 1',
+        to: '/qualitativedata/form1',
+      },
+      {
+        component: CNavItem,
+        name: 'Form 2',
+        to: '/qualitativedata/form2',
+      },
+    ],
+  },
+
+  {
+    component: CNavGroup,
+    name: 'Administration',
+    to: '/administration',
+    icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Corporation',
+        to: '/administration/corporation',
+      },
+      {
+        component: CNavItem,
+        name: 'Cashier',
+        to: '/administration/cashier',
+      },
+      {
+        component: CNavItem,
+        name: 'Agence',
+        to: '/administration/agence',
+      },
+    ],
+  },
+
+  {
+    component: CNavGroup,
+    name: 'Settings',
+    to: '/settings',
+    icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Sesame Agent',
+        to: '/settings/sesameagent',
+      },
+      {
+        component: CNavItem,
+        name: 'Heading',
+        to: '/settings/heading',
+      },
+    ],
   },
 ]
 

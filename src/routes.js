@@ -16,14 +16,14 @@ const Paginations = React.lazy(() => import('./views/base/paginations/Pagination
 const Placeholders = React.lazy(() => import('./views/base/placeholders/Placeholders'))
 const Popovers = React.lazy(() => import('./views/base/popovers/Popovers'))
 const Progress = React.lazy(() => import('./views/base/progress/Progress'))
-const Spinners = React.lazy(() => import('./views/base/spinners/Spinners'))
 
 const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
 
-// Odilon
+// Sesame paths
 const GenerateFile = React.lazy(() => import('./views/GenerateFile/GenerateFile'))
 const UserManagement = React.lazy(() => import('./views/usermanagement/UserManagement'))
 const Profile = React.lazy(() => import('./views/profile/Profile'))
+const Corporation = React.lazy(() => import('./views/administration/Corporation'))
 
 //Forms
 const ChecksRadios = React.lazy(() => import('./views/forms/checks-radios/ChecksRadios'))
@@ -66,13 +66,14 @@ const routes = [
   { path: '/base/placeholders', name: 'Placeholders', element: Placeholders },
   { path: '/base/popovers', name: 'Popovers', element: Popovers },
   { path: '/base/progress', name: 'Progress', element: Progress },
-  { path: '/base/spinners', name: 'Spinners', element: Spinners },
 
   { path: '/base/tooltips', name: 'Tooltips', element: Tooltips },
 
+  // Sesame Paths
   { path: '/GenerateFile/GenerateFile', name: 'GenerateFile', element: GenerateFile },
   { path: '/usermanagement/UserManagement', name: 'UserManagement', element: UserManagement },
   { path: '/profile/Profile', name: 'Profile', element: Profile },
+  { path: '/administration/Corporation', name: 'Corporation', element: Corporation },
 
   { path: '/forms', name: 'Forms', element: FormControl, exact: true },
   { path: '/forms/form-control', name: 'Form Control', element: FormControl },

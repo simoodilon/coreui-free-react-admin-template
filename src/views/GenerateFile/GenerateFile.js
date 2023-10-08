@@ -98,24 +98,31 @@ const GenerateFile = () => {
                     Date Range
                   </CCol>
                   <CCol>
-                    <DatePicker
-                      selected={startDate}
-                      onChange={(date) => setStartDate(date)}
-                      startDate={startDate}
-                      endDate={endDate}
-                      selectsStart
-                      isClearable
-                      placeholderText="Start Date"
-                    />
-                    <DatePicker
-                      selected={endDate}
-                      onChange={(date) => setEndDate(date)}
-                      startDate={startDate}
-                      endDate={endDate}
-                      selectsEnd
-                      isClearable
-                      placeholderText="End Date"
-                    />
+                    <div className="date-picker-container">
+                      <DatePicker
+                        className="form-control"
+                        selected={startDate}
+                        onChange={(date) => setStartDate(date)}
+                        startDate={startDate}
+                        endDate={endDate}
+                        selectsStart
+                        isClearable
+                        placeholderText="Start Date"
+                        required
+                      />
+
+                      <DatePicker
+                        className="form-control"
+                        selected={endDate}
+                        onChange={(date) => setEndDate(date)}
+                        startDate={startDate}
+                        endDate={endDate}
+                        selectsEnd
+                        isClearable
+                        placeholderText="End Date"
+                        required
+                      />
+                    </div>
                   </CCol>
                 </CRow>
                 <CRow className="align-items-center mb-3">
@@ -124,6 +131,7 @@ const GenerateFile = () => {
                   </CCol>
                   <CCol>
                     <input
+                      className="form-control"
                       type="text"
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
@@ -131,25 +139,26 @@ const GenerateFile = () => {
                     />
                   </CCol>
                 </CRow>
-                <CCol xs={12} xl={2} className="mb-3 mb-xl-0">
-                  Download Format
-                </CCol>
-                <CCol>
-                  <CFormSelect
-                    size="sm"
-                    className="mb-3"
-                    aria-label="Small select example"
-                    value={selectedOption}
-                    onChange={(e) => setSelectedOption(e.target.value)}
-                  >
-                    <option>Select Format</option>
-                    <option value="1">FM1000</option>
-                    <option value="2">Bilan Actif</option>
-                    <option value="3">Bilan Passif</option>
-                    <option value="4">Compte De Resultat Produit</option>
-                    <option value="5">Compte De Resultat Charges</option>
-                  </CFormSelect>
-                </CCol>
+                <CRow>
+                  <CCol xs={12} xl={2} className="mb-3 mb-xl-0">
+                    Download Format
+                  </CCol>
+                  <CCol>
+                    <CFormSelect
+                      size="sm"
+                      className="mb-3"
+                      aria-label="Small select example"
+                      value={selectedOption}
+                      onChange={(e) => setSelectedOption(e.target.value)}
+                    >
+                      <option value="1">FM1000</option>
+                      <option value="2">Bilan Actif</option>
+                      <option value="3">Bilan Passif</option>
+                      <option value="4">Compte De Resultat Produit</option>
+                      <option value="5">Compte De Resultat Charges</option>
+                    </CFormSelect>
+                  </CCol>
+                </CRow>
               </CRow>
               <CButton color="primary" onClick={handleApiRequest}>
                 <CIcon icon={cilDataTransferDown} className="me-2" />
