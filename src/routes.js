@@ -23,10 +23,12 @@ const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
 const GenerateFile = React.lazy(() => import('./views/GenerateFile/GenerateFile'))
 const UserManagement = React.lazy(() => import('./views/usermanagement/UserManagement'))
 const Profile = React.lazy(() => import('./views/profile/Profile'))
-const Corporation = React.lazy(() => import('./views/administration/Corporation'))
+const Corporation = React.lazy(() => import('./views/administration/corporation/Corporation'))
+const Cashier = React.lazy(() => import('./views/administration/cashier/Cashier'))
+const Agence = React.lazy(() => import('./views/administration/agence/Agence'))
 
 //Forms
-const ChecksRadios = React.lazy(() => import('./views/forms/checks-radios/ChecksRadios'))
+
 const FloatingLabels = React.lazy(() => import('./views/forms/floating-labels/FloatingLabels'))
 const FormControl = React.lazy(() => import('./views/forms/form-control/FormControl'))
 const InputGroup = React.lazy(() => import('./views/forms/input-group/InputGroup'))
@@ -73,12 +75,26 @@ const routes = [
   { path: '/GenerateFile/GenerateFile', name: 'GenerateFile', element: GenerateFile },
   { path: '/usermanagement/UserManagement', name: 'UserManagement', element: UserManagement },
   { path: '/profile/Profile', name: 'Profile', element: Profile },
-  { path: '/administration/Corporation', name: 'Corporation', element: Corporation },
+  {
+    path: '/administration/corporation',
+    name: 'Administration / Corporation',
+    element: Corporation,
+  },
+  {
+    path: '/administration/cashier',
+    name: 'Administration / Cashier',
+    element: Cashier,
+  },
+  {
+    path: '/administration/agence',
+    name: 'Administration / Agence',
+    element: Agence,
+  },
 
   { path: '/forms', name: 'Forms', element: FormControl, exact: true },
   { path: '/forms/form-control', name: 'Form Control', element: FormControl },
   { path: '/forms/select', name: 'Select', element: Select },
-  { path: '/forms/checks-radios', name: 'Checks & Radios', element: ChecksRadios },
+
   { path: '/forms/range', name: 'Range', element: Range },
   { path: '/forms/input-group', name: 'Input Group', element: InputGroup },
   { path: '/forms/floating-labels', name: 'Floating Labels', element: FloatingLabels },
