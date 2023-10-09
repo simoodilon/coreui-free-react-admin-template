@@ -83,7 +83,7 @@ const Agence = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Cashiers</strong>
+            <strong>Agence</strong>
           </CCardHeader>
           <CCardBody>
             <CTable>
