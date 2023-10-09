@@ -84,7 +84,13 @@ const Corporation = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Corporations</strong>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <strong>Corporations</strong>
+              {/* Add Corporation Button */}
+              <CButton color="success" onClick={showAddCorporation}>
+                Add Corporation
+              </CButton>
+            </div>
           </CCardHeader>
           <CCardBody>
             <CTable>
@@ -118,7 +124,7 @@ const Corporation = () => {
                 </CTableRow>
 
                 <CTableRow>
-                  <CTableHeaderCell scope="row">1</CTableHeaderCell>
+                  <CTableHeaderCell scope="row">2</CTableHeaderCell>
                   <CTableHeaderCell>UBC</CTableHeaderCell>
                   <CTableHeaderCell>Credix</CTableHeaderCell>
                   <CTableHeaderCell>CAMCCUL</CTableHeaderCell>
@@ -138,10 +144,6 @@ const Corporation = () => {
                 {/* ... (other rows) ... */}
               </CTableBody>
             </CTable>
-            {/* Add Corporation Button */}
-            <CButton color="success" onClick={showAddCorporation}>
-              Add Corporation
-            </CButton>
           </CCardBody>
         </CCard>
       </CCol>

@@ -83,7 +83,13 @@ const Cashier = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Cashiers</strong>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <strong>Cashiers</strong>
+              {/* Add Cashier Button */}
+              <CButton color="success" onClick={showAddCashier}>
+                Add Cashier
+              </CButton>
+            </div>{' '}
           </CCardHeader>
           <CCardBody>
             <CTable>
@@ -118,10 +124,6 @@ const Cashier = () => {
                 {/* ... (other rows) ... */}
               </CTableBody>
             </CTable>
-            {/* Add Cashier Button */}
-            <CButton color="success" onClick={showAddCashier}>
-              Add Cashier
-            </CButton>
           </CCardBody>
         </CCard>
       </CCol>

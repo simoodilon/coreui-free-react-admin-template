@@ -83,7 +83,13 @@ const Agence = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Agence</strong>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <strong>Agence</strong>
+              {/* Add Agence Button */}
+              <CButton color="success" onClick={showAddCashier}>
+                Add Agence
+              </CButton>
+            </div>
           </CCardHeader>
           <CCardBody>
             <CTable>
@@ -118,10 +124,6 @@ const Agence = () => {
                 {/* ... (other rows) ... */}
               </CTableBody>
             </CTable>
-            {/* Add Agence Button */}
-            <CButton color="success" onClick={showAddCashier}>
-              Add Agence
-            </CButton>
           </CCardBody>
         </CCard>
       </CCol>
