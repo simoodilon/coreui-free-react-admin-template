@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   CCard,
   CCardHeader,
@@ -14,30 +14,38 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import {
-  cibCcAmex,
-  cibCcApplePay,
   cibCcMastercard,
-  cibCcPaypal,
-  cibCcStripe,
   cibCcVisa,
   cifBr,
-  cifEs,
-  cifFr,
-  cifIn,
-  cifPl,
   cifUs,
   cilPeople,
+  cilPencil,
+  cilTrash,
 } from '@coreui/icons'
 import { CAvatar } from '@coreui/react'
 
+import DeleteModal from '../tools/deletemodal/DeleteModal'
+import EditModal from '../tools/editprofilemodal/EditProfileModal'
+
 import avatar1 from 'src/assets/images/avatars/1.jpg'
 import avatar2 from 'src/assets/images/avatars/2.jpg'
-import avatar3 from 'src/assets/images/avatars/3.jpg'
-import avatar4 from 'src/assets/images/avatars/4.jpg'
-import avatar5 from 'src/assets/images/avatars/5.jpg'
-import avatar6 from 'src/assets/images/avatars/6.jpg'
 
 const UserManagement = () => {
+  const [deleteModalShow, setDeleteModalShow] = useState(false)
+  const [selectedUser, setSelectedUser] = useState(null)
+  const [showEditModal, setShowEditModal] = useState(false)
+
+  const handleEditClick = () => {
+    setShowEditModal(true)
+  }
+  const handleDeleteClick = () => {
+    // Set the selected user or perform any other necessary actions
+    setSelectedUser(/* Add logic to select the user */)
+
+    // Show the delete modal
+    setDeleteModalShow(true)
+  }
+
   const tableExample = [
     {
       avatar: { src: avatar1, status: 'success' },
@@ -71,69 +79,15 @@ const UserManagement = () => {
       payment: { name: 'Visa', icon: cibCcVisa },
       activity: '5 minutes ago',
     },
-    {
-      avatar: { src: avatar3, status: 'warning' },
-      user: { name: 'Quintin Ed', new: true, registered: 'Jan 1, 2021' },
-      country: { name: 'India', flag: cifIn },
-      usage: {
-        value: 74,
-        period: 'Jun 11, 2021 - Jul 10, 2021',
-        color: 'warning',
-      },
-      payment: { name: 'Stripe', icon: cibCcStripe },
-      activity: '1 hour ago',
-    },
-    {
-      avatar: { src: avatar4, status: 'secondary' },
-      user: { name: 'Enéas Kwadwo', new: true, registered: 'Jan 1, 2021' },
-      country: { name: 'France', flag: cifFr },
-      usage: {
-        value: 98,
-        period: 'Jun 11, 2021 - Jul 10, 2021',
-        color: 'danger',
-      },
-      payment: { name: 'PayPal', icon: cibCcPaypal },
-      activity: 'Last month',
-    },
-    {
-      avatar: { src: avatar5, status: 'success' },
-      user: {
-        name: 'Agapetus Tadeáš',
-        new: true,
-        registered: 'Jan 1, 2021',
-      },
-      country: { name: 'Spain', flag: cifEs },
-      usage: {
-        value: 22,
-        period: 'Jun 11, 2021 - Jul 10, 2021',
-        color: 'primary',
-      },
-      payment: { name: 'Google Wallet', icon: cibCcApplePay },
-      activity: 'Last week',
-    },
-    {
-      avatar: { src: avatar6, status: 'danger' },
-      user: {
-        name: 'Friderik Dávid',
-        new: true,
-        registered: 'Jan 1, 2021',
-      },
-      country: { name: 'Poland', flag: cifPl },
-      usage: {
-        value: 43,
-        period: 'Jun 11, 2021 - Jul 10, 2021',
-        color: 'success',
-      },
-      payment: { name: 'Amex', icon: cibCcAmex },
-      activity: 'Last week',
-    },
+    // ... (other data)
   ]
+
   return (
     <CRow>
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong> View Users</strong>
+            <strong>View Users</strong>
           </CCardHeader>
           <CTable align="middle" className="mb-0 border" hover responsive>
             <CTableHead color="light">
@@ -142,15 +96,15 @@ const UserManagement = () => {
                   <CIcon icon={cilPeople} />
                 </CTableHeaderCell>
                 <CTableHeaderCell>User</CTableHeaderCell>
-                <CTableHeaderCell className="text-center">Country</CTableHeaderCell>
+                <CTableHeaderCell className="text-center">User Role</CTableHeaderCell>
                 <CTableHeaderCell>Usage</CTableHeaderCell>
-                <CTableHeaderCell className="text-center">Profile Type</CTableHeaderCell>
+                <CTableHeaderCell className="text-center">Actions</CTableHeaderCell>
                 <CTableHeaderCell>Activity</CTableHeaderCell>
               </CTableRow>
             </CTableHead>
             <CTableBody>
               {tableExample.map((item, index) => (
-                <CTableRow v-for="item in tableItems" key={index}>
+                <CTableRow key={index}>
                   <CTableDataCell className="text-center">
                     <CAvatar size="md" src={item.avatar.src} status={item.avatar.status} />
                   </CTableDataCell>
@@ -176,7 +130,12 @@ const UserManagement = () => {
                     <CProgress thin color={item.usage.color} value={item.usage.value} />
                   </CTableDataCell>
                   <CTableDataCell className="text-center">
-                    <CIcon size="xl" icon={item.payment.icon} />
+                    <button className="btn btn-outline-primary me-2" onClick={handleEditClick}>
+                      <CIcon size="sm" icon={cilPencil} />
+                    </button>
+                    <button className="btn btn-outline-danger" onClick={handleDeleteClick}>
+                      <CIcon size="sm" icon={cilTrash} />
+                    </button>
                   </CTableDataCell>
                   <CTableDataCell>
                     <div className="small text-medium-emphasis">Last login</div>
@@ -187,6 +146,18 @@ const UserManagement = () => {
             </CTableBody>
           </CTable>
         </CCard>
+        {/* Edit Modal */}
+        {showEditModal && <EditModal onClose={() => setShowEditModal(false)} />}
+        {/* Delete Modal */}
+        {deleteModalShow && (
+          <DeleteModal
+            onClose={() => setDeleteModalShow(false)}
+            onDelete={() => {
+              // Handle delete action here
+              setDeleteModalShow(false)
+            }}
+          />
+        )}
       </CCol>
     </CRow>
   )

@@ -9,6 +9,7 @@ import {
   cilFile,
   cilUser,
   cilUserPlus,
+  cilPeople,
 } from '@coreui/icons'
 import { CNavItem, CNavGroup } from '@coreui/react'
 
@@ -61,7 +62,7 @@ const _nav = [
     component: CNavItem,
     name: 'User Management',
     to: '/usermanagement/UserManagement',
-    icon: <CIcon icon={cilUserPlus} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
     badge: {
       color: 'info',
     },
