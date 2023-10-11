@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   CButton,
   CCard,
@@ -10,13 +10,21 @@ import {
   CFormInput,
   CFormLabel,
   CFormSelect,
-  CInputGroup,
-  CInputGroupText,
   CRow,
 } from '@coreui/react'
-import { DocsExample } from 'src/components'
+import DeleteModal from '../tools/deletemodal/DeleteModal'
 
 const Profile = () => {
+  const [deleteModalShow, setDeleteModalShow] = useState(false)
+  const [selectedUser, setSelectedUser] = useState(null)
+
+  const handleDeleteClick = () => {
+    // Set the selected user or perform any other necessary actions
+    setSelectedUser(/* Add logic to select the user */)
+
+    // Show the delete modal
+    setDeleteModalShow(true)
+  }
   return (
     <CRow>
       <CCol xs={12}>
@@ -64,11 +72,22 @@ const Profile = () => {
                 <CButton type="submit">Modify Changes</CButton>
               </CCol>
               <CCol md={2}>
-                <CButton color="danger">Delete Profile</CButton>
+                <CButton color="danger" onClick={handleDeleteClick}>
+                  Delete Profile
+                </CButton>
               </CCol>
             </CForm>
           </CCardBody>
         </CCard>
+        {deleteModalShow && (
+          <DeleteModal
+            onClose={() => setDeleteModalShow(false)}
+            onDelete={() => {
+              // Handle delete action here
+              setDeleteModalShow(false)
+            }}
+          />
+        )}
       </CCol>
     </CRow>
   )
