@@ -1,6 +1,6 @@
 export const BASE_URL = 'http://192.168.2.66:887'
 
-export async function apiRequest(link, method, form, token) {
+export async function apiRequest(link, method, form, token, responseType) {
   const url = BASE_URL + link
   let headers = {
     Accept: 'application/json',
@@ -32,7 +32,11 @@ export async function apiRequest(link, method, form, token) {
   const resp = await fetch(request)
   // const data = await resp.json()
 
-  return await resp.blob() //ApiResponse(resp.status, data)
+  if (responseType === 'file') {
+    return await resp.blob() //ApiResponse(resp.status, data)
+  } else {
+    return await resp.json()
+  }
 }
 
 // function ApiResponse(status, data) {

@@ -2,13 +2,11 @@ import React from 'react'
 import CIcon from '@coreui/icons-react'
 import {
   cilSpeedometer,
-  cilCursor,
   cilBank,
   cilSettings,
   cilNotes,
   cilFile,
   cilUser,
-  cilUserPlus,
   cilPeople,
 } from '@coreui/icons'
 import { CNavItem, CNavGroup } from '@coreui/react'

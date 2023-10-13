@@ -46,7 +46,7 @@ const GenerateFile = () => {
     console.log('Requestdata:', requestData)
 
     try {
-      const response = await apiRequest(selectedEndpoint, 'post', requestData) // Use the apiRequest function
+      const response = await apiRequest(selectedEndpoint, 'post', requestData, 'file') // Use the apiRequest function
 
       console.log('API Response:', response)
 

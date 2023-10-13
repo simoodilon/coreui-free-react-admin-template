@@ -8,7 +8,6 @@ export async function apiRequestlog(link, method, form, token) {
   }
   let body = JSON.stringify(form)
 
-  console.log(body)
   if (form instanceof FormData) {
     headers = {
       Accept: 'application/json',
@@ -28,9 +27,21 @@ export async function apiRequestlog(link, method, form, token) {
     body,
   })
 
-  console.log(request)
-  const resp = await fetch(request)
-  // const data = await resp.json()
+  try {
+    const resp = await fetch(request)
 
-  return await resp.blob() //ApiResponse(resp.status, data)
+    if (!resp.ok) {
+      // Handle non-2xx responses here, for example:
+      if (resp.status === 401) {
+        // Unauthorized, redirect to the login page or do something else
+      }
+      throw new Error(`Request failed with status ${resp.status}`)
+    }
+
+    return await resp.json()
+  } catch (error) {
+    // Handle network errors and other exceptions
+    console.error('Request error:', error)
+    throw error
+  }
 }
