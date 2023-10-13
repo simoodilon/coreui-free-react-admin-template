@@ -4,6 +4,8 @@ import './scss/style.scss'
 import { AuthProvider } from './views/authcontext/AuthContext'
 
 import ProtectedRoute from './views/authcontext/ProtectedRoute'
+import store from './Redux/Store'
+import { Provider } from 'react-redux'
 
 const loading = (
   <div className="pt-3 text-center">
@@ -23,27 +25,29 @@ const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
 class App extends Component {
   render() {
     return (
-      <AuthProvider>
-        <BrowserRouter>
-          <Suspense fallback={loading}>
-            <Routes>
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/register" element={<Register />} />
-              <Route exact path="/404" element={<Page404 />} />
-              <Route exact path="/500" element={<Page500 />} />
+      <Provider store={store}>
+        <AuthProvider>
+          <BrowserRouter>
+            <Suspense fallback={loading}>
+              <Routes>
+                <Route exact path="/login" element={<Login />} />
+                <Route exact path="/register" element={<Register />} />
+                <Route exact path="/404" element={<Page404 />} />
+                <Route exact path="/500" element={<Page500 />} />
 
-              <Route
-                path="*"
-                element={
-                  <ProtectedRoute>
-                    <DefaultLayout />
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </AuthProvider>
+                <Route
+                  path="*"
+                  element={
+                    <ProtectedRoute>
+                      <DefaultLayout />
+                    </ProtectedRoute>
+                  }
+                />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </AuthProvider>
+      </Provider>
     )
   }
 }
